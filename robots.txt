@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+# Public HTML remains noindex pending owner decisions and legal approvals.

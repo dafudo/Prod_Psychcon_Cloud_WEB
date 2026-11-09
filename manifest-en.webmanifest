@@ -1,0 +1,39 @@
+{
+  "id": "/pca-app",
+  "name": "The Psychology Counselling Association",
+  "short_name": "PCA",
+  "description": "The Psychology Counselling Association — professional record information.",
+  "lang": "en",
+  "start_url": "/en",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf8",
+  "theme_color": "#fbfaf8",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icon-pack-tdp/android/mipmap-xxxhdpi/ic_launcher.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-pack-tdp/android/play-store-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Leadership",
+      "short_name": "Board",
+      "url": "/en/board"
+    },
+    {
+      "name": "Pricing",
+      "short_name": "Pricing",
+      "url": "/en/pricing"
+    }
+  ]
+}
