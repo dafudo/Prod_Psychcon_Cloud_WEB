@@ -65,8 +65,28 @@
     const titleTag=document.head.querySelector('meta[name="apple-mobile-web-app-title"]');
     if(appTitle&&titleTag)titleTag.content=appTitle;
   }
+
+  // The public application guide is informational; no private app data is requested.
+  function syncApplyTrack(){
+    const select=qs('#recognition-choice'),chosen=qs('.apply-chosen');
+    if(!select||!chosen)return;
+    const requested=new URL(location.href).searchParams.get('track');
+    const selected=['training','I','II','III','IV','honorary'].includes(requested)?requested:'I';
+    select.value=selected;
+    const template=qs('template[data-track-content="'+selected+'"]');
+    if(template)chosen.replaceChildren(template.content.cloneNode(true));
+    const contact=qs('.apply-sidebar a[href^="mailto:"]');
+    if(contact){
+      const name=chosen.querySelector('h2')?.textContent?.trim().replace(/\s+/g,' ')||selected;
+      const isEn=root.lang==='en';
+      const subject=isEn?'Enquiry about a TDP review — '+name:'Zapytanie o ocenę dorobku TDP — '+name;
+      const body=isEn?'Hello,\nPlease let me know about the proposed '+name+' pathway and application availability.\n':'Dzień dobry,\nProszę o informację o proponowanej ścieżce '+name+' oraz możliwości rozpoczęcia procedury.\n';
+      contact.href='mailto:office@psychcon.org?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    }
+  }
   function initialize(){
     setDrawer(false);
+    syncApplyTrack();
     observeReveals();
     scrollProgress();
   }
