@@ -2,6 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# The public HTML currently carries a noindex meta tag pending approval.
-# Crawling is allowed so crawlers can read that restriction; sitemap does not override it.
 Sitemap: https://www.psychcon.org/sitemap.xml

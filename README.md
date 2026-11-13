@@ -10,7 +10,7 @@ Public pages: `/pl/`, `/en/`, and `about`, `board`, `assessment`, `apply`, `pric
 
 Set **Settings → Pages → Build and deployment → Deploy from a branch → main → /(root) → Save**. An existing GitHub Pages site that currently claims `www.psychcon.org` must first release its custom domain in its Pages settings. This repo has `CNAME` set to `www.psychcon.org`. DNS is already managed separately; verify its current target and SSL after switching Pages. Keep the domain DNS as-is when it already targets GitHub Pages. The Pages configuration itself cannot be completed through a source commit alone.
 
-Keep the old website backed up. Do not deploy private applicant, admin or payment functionality onto GitHub Pages. As required by the project's `AGENTS.md`, no lint or GitHub Actions/CI workflow was created or run. Static public pages currently use `noindex` while publication and legal review gates remain pending; verify metadata, content and all hyperlinks before allowing search indexing.
+Keep the old website backed up. Do not deploy private applicant, admin or payment functionality onto GitHub Pages. As required by the project's `AGENTS.md`, no lint or GitHub Actions/CI workflow was created or run. The owner explicitly authorised public publication and search-engine indexing on 2026-11-13; all 14 static PL/EN public informational pages now permit indexing. The separate application and payment/award functions remain gated.
 
 
 ## Landing-page and application-pathway update — 2026-11-13
@@ -48,3 +48,9 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 - All public HTML still has **noindex**; the sitemap does not override this. Robots allow public crawling so that crawlers can read the noindex tag. Do not remove noindex without the owner's formal legal/publication approval and a separate deployment decision.
 - Static audit: all 14 public HTML pages checked for canonical, hreflang, title, description and JSON-LD; 402 internal links and 60 in-page anchors resolved with zero broken targets. JavaScript syntax parsed. These are source checks, NOT live browser, Core Web Vitals, build, Search Console or production verification. No lint, CI/GitHub Actions or deployment performed.
 - Detailed notes and remaining go-live gates: SEO-AUDIT-2026-11-13.md.
+
+## Public website publication authorisation — 2026-11-13
+
+The owner expressly authorised publishing and indexing the public TDP/PCA marketing website. This release removes `noindex` from all **14** public static PL/EN pages (including the informational `/apply/` guides); root `/` has a canonical to `/pl/` and retains a visible language choice and redirect. `404.html` correctly remains noindex. `robots.txt` provides a 14-page sitemap, with reciprocal PL/EN/x-default alternates. No private application URLs or account data appear in the sitemap. Proposals for levels remain labelled as proposed, since public-site release consent is distinct from formally approving award regulations or enabling paid intake.
+
+The GitHub commit updates `main`, the configured intended publication branch. **Live GitHub Pages enablement/custom-domain assignment and production HTTP checks must still be independently verified**; updating source alone does not establish them. No lint or GitHub Actions/CI workflows were enabled. A legal or operational release of the private application has NOT been authorised by this change.
