@@ -16,7 +16,7 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 ## Landing-page and application-pathway update — 2026-11-13
 
 - Promoted the full TDP/PCA association designation, clarified candidate benefits and made the primary "I want to apply" action more visible while preserving the existing visual design in Polish and English.
-- Expanded **proposed**, not approved, Level I and II criteria to include relevant pedagogy and education degrees/specialisations for individual consideration. Higher levels III and IV retain their existing psychology requirements.
+- Expanded **proposed**, not approved, Level I and II criteria to include relevant pedagogy and education degrees/specialisations for individual consideration. At this stage higher levels III and IV retained their original scope; see the later multidisciplinary criteria update below, which supersedes this older copy.
 - Corrected the static /apply/?track= selector by pre-rendering consistent evidence and documentation for all six paths and adjusting the interest email subject to the selected pathway.
 - All other public pages retain their content but use matching application-link labels and versioned CSS/JS references. The private application and its eligibility/acceptance logic were **not** changed.
 - The public pages remain noindex, fee intake and awarding are still gated pending formal approval, and the public website does not collect applicant documents.
@@ -25,7 +25,7 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 ## Multidisciplinary criteria and application UX — 2026-11-13
 
 - Replaced the vague contact action with explicit "send an email enquiry", followed immediately by the application portal action (https://app.psychcon.org/pl/login or English equivalent).
-- Choosing a recognition level on /pl/apply/ or /en/apply/ immediately opens the detailed /assessment/#track-... explanation and expands it. General hash links now also work after client-side navigation.
+- Earlier navigation sent level selection to /assessment/#track-... . The 2026-11-13 navigation and SEO correction documented below supersedes that behaviour.
 - Proposed recognition descriptions consider psychology, pedagogy, counselling, sociology, philosophy, education and relevant social/humanities disciplines including overseas degrees; supplementary courses and supervised practice may be considered to bridge a curriculum gap.
 - Proposed Levels III–IV continue to require three / over five years of experience respectively and five distinct DOI publications. Courses never automatically substitute for a degree or the DOI requirement.
 - These descriptions are NOT approved regulations and do not change the private application, awards, eligibility engine, payment or intake gates. All public pages remain noindex.
@@ -38,3 +38,13 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 - The six homepage "Zobacz szczegóły" / "See details" links now open the matching detailed criteria on /pl/apply/?track=...#selected-pathway or /en/apply/?track=...#selected-pathway, instead of the near-duplicate grid on /assessment/. The selected criteria, evidence and contact/portal actions appear immediately.
 - The existing informational /assessment/ page and its in-page criteria accordions remain available for people exploring all levels. The separate application portal, privacy and intake/legal gates are unchanged.
 - The selected content has an accessible, deep-linkable anchor with sticky-header scroll offset. Static source checks performed; no lint, Actions/CI, browser end-to-end test or manual deployment.
+
+## Recognition wording, navigation and SEO audit — 2026-11-13
+
+- On /pl/apply/ and /en/apply/, selecting a level now **updates that level's criteria in the current detail view immediately**, changes the address to /apply/?track=<level>#selected-pathway, scrolls and focuses the selected level; it never sends users back to the all-level /assessment/ overview. Browser Back restores previous selection. Switching language preserves the chosen level and direct assessment anchor. Links from the six /assessment/ cards now land on the right detail section.
+- Marketing copy and metadata clearly present the **association's discretionary title recognising documented education, professional practice, development and achievements**, not a statutory qualification, professional licence or qualification equivalence decision. Both languages have been revised. Also corrected text spacing in the displayed "TDP I–IV" headings.
+- All 14 locale HTML pages have individual, consistent meta title/description, canonical, reciprocal PL/EN/x-default hreflang, OG/Twitter and a parsed Organization, WebSite, WebPage and (for subpages) BreadcrumbList schema.org graph. The SPA script now updates canonical, alternate language tags, robots metadata and structured data when navigating without a full page reload.
+- sitemap.xml lists **12 public content routes** (six types x PL/EN: home, about, board, assessment, pricing and partners), each with language alternatives. It deliberately excludes /apply, the account portal, private/API routes and unfinished policies in accordance with the project SEO specification. robots.txt advertises the sitemap.
+- All public HTML still has **noindex**; the sitemap does not override this. Robots allow public crawling so that crawlers can read the noindex tag. Do not remove noindex without the owner's formal legal/publication approval and a separate deployment decision.
+- Static audit: all 14 public HTML pages checked for canonical, hreflang, title, description and JSON-LD; 402 internal links and 60 in-page anchors resolved with zero broken targets. JavaScript syntax parsed. These are source checks, NOT live browser, Core Web Vitals, build, Search Console or production verification. No lint, CI/GitHub Actions or deployment performed.
+- Detailed notes and remaining go-live gates: SEO-AUDIT-2026-11-13.md.

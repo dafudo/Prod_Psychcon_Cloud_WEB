@@ -55,7 +55,8 @@
     items.forEach(el=>observer.observe(el));
   }
   function syncSocialAndAppHead(parsed){
-    const tags='meta[property^="og:"],meta[name^="twitter:"]';
+    // A client-side route change must replace ALL page-specific metadata, not just OG.
+    const tags='meta[property^="og:"],meta[name^="twitter:"],meta[name="robots"],meta[name="googlebot"],link[rel="canonical"],link[rel="alternate"][hreflang],script[type="application/ld+json"]';
     document.head.querySelectorAll(tags).forEach(node=>node.remove());
     parsed.head.querySelectorAll(tags).forEach(node=>document.head.appendChild(document.importNode(node,true)));
     document.head.querySelector('link[rel="manifest"]')?.remove();
@@ -85,6 +86,21 @@
     }
   }
 
+  const knownTracks=['training','I','II','III','IV','honorary'];
+  function showApplyTrack(track){
+    if(!knownTracks.includes(track)||!qs('#recognition-choice')||!qs('#selected-pathway'))return;
+    const target=new URL(location.href);
+    target.searchParams.set('track',track);
+    target.hash='selected-pathway';
+    const next=target.pathname+target.search+target.hash;
+    if(next!==location.pathname+location.search+location.hash)history.pushState({},'',next);
+    syncApplyTrack();
+    const detail=qs('#selected-pathway');
+    requestAnimationFrame(()=>{
+      detail.scrollIntoView({block:'start',behavior:'instant'});
+      detail.focus({preventScroll:true});
+    });
+  }
   function openSelectedTrack(){
     let id;
     try{id=decodeURIComponent(location.hash.slice(1));}catch{return null;}
@@ -157,21 +173,25 @@
     if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
     const u=new URL(a.href,location.origin);
     if(u.origin!==location.origin)return;
-    if(u.pathname===location.pathname&&u.hash){setDrawer(false);return;}
+    if(a.classList.contains('language-pill')){
+      const selected=qs('#recognition-choice')?.value;
+      if(knownTracks.includes(selected)&&/^\/(?:pl|en)\/apply\/?$/.test(u.pathname)){
+        u.searchParams.set('track',selected);u.hash='selected-pathway';
+      }else if(/^#track-(training|I|II|III|IV|honorary)$/.test(location.hash)&&/\/assessment\/?$/.test(u.pathname)){
+        u.hash=location.hash;
+      }
+    }
+    if(u.pathname===location.pathname&&u.hash&&u.search===location.search){setDrawer(false);return;}
     if(!allowed.test(u.pathname))return;
     event.preventDefault();
     if(u.pathname===location.pathname&&u.search===location.search&&u.hash===location.hash){setDrawer(false);return;}
     void navigate(u.href);
   });
-  // A single selection opens the corresponding detailed route; no submit click needed.
+  // Changing the level reveals its criteria immediately; never navigate back to the list.
   document.addEventListener('change',event=>{
-    if(event.target?.id!=='recognition-choice')return;
-    const track=event.target.value;
-    if(!['training','I','II','III','IV','honorary'].includes(track))return;
-    const locale=root.lang==='en'?'en':'pl';
-    void navigate('/'+locale+'/assessment/#track-'+track);
+    if(event.target?.id==='recognition-choice')showApplyTrack(event.target.value);
   });
-  window.addEventListener('hashchange',()=>{openSelectedTrack();});
+  window.addEventListener('hashchange',()=>{syncApplyTrack();openSelectedTrack();});
   document.addEventListener('keydown',event=>{
     if(event.key==='Escape'&&qs('[data-burger]')?.getAttribute('aria-expanded')==='true'){
       event.preventDefault();setDrawer(false,{restoreFocus:true});
@@ -190,7 +210,13 @@
     if(window.innerWidth>940&&qs('[data-burger]')?.getAttribute('aria-expanded')==='true')setDrawer(false);
     queueProgress();
   },{passive:true});
-  window.addEventListener('popstate',()=>{void navigate(location.href,{historyEvent:true});});
+  window.addEventListener('popstate',()=>{
+    const locale=location.pathname.match(/^\/(pl|en)\/apply\/?$/)?.[1];
+    if(locale&&root.lang===locale&&qs('#recognition-choice')){
+      syncApplyTrack();openSelectedTrack();return;
+    }
+    void navigate(location.href,{historyEvent:true});
+  });
   reduced.addEventListener?.('change',()=>{
     root.classList.toggle('has-motion',!reduced.matches);
     observeReveals();

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.psychcon.org/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/pl/about/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/about/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/about/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/pl/board/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/board/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/board/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/board/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/board/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/board/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/board/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/board/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/pl/assessment/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/assessment/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/assessment/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/assessment/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/assessment/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/assessment/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/assessment/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/assessment/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/pl/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/pricing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/pricing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/pricing/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/pricing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/pricing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/pricing/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/pl/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/partners/" />
+  </url>
+  <url>
+    <loc>https://www.psychcon.org/en/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.psychcon.org/pl/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.psychcon.org/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.psychcon.org/pl/partners/" />
+  </url>
+</urlset>
