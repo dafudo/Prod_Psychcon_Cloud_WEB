@@ -495,3 +495,9 @@ h1[tabindex="-1"]:focus{outline:none}
 
 /* Support direct links and SPA transitions to details and qualification notes. */
 #kierunki-i-kompetencje,#qualifications-and-experience,#procedure,#tracks,#process{scroll-margin-top:110px}
+
+/* Direct links from the recognition grid land at the selected level's criteria,
+   below the sticky navigation, rather than at another six-level overview. */
+#selected-pathway{scroll-margin-top:120px}
+#selected-pathway:target{border-color:#cbb0db}
+@media(max-width:940px){#selected-pathway{scroll-margin-top:90px}}

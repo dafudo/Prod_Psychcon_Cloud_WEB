@@ -32,3 +32,9 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 - Polish and English descriptions were revised together; JavaScript/CSS URLs were refreshed on all 14 locale pages.
 - Project restrictions honoured: no lint, GitHub Actions/CI or deployment. Source-level checks and JavaScript parsing only. No live-browser verification.
 - Background and academic examples: ELIGIBILITY-PROPOSAL-2026-11-13.md.
+
+## Direct recognition-level detail links — 2026-11-13
+
+- The six homepage "Zobacz szczegóły" / "See details" links now open the matching detailed criteria on /pl/apply/?track=...#selected-pathway or /en/apply/?track=...#selected-pathway, instead of the near-duplicate grid on /assessment/. The selected criteria, evidence and contact/portal actions appear immediately.
+- The existing informational /assessment/ page and its in-page criteria accordions remain available for people exploring all levels. The separate application portal, privacy and intake/legal gates are unchanged.
+- The selected content has an accessible, deep-linkable anchor with sticky-header scroll offset. Static source checks performed; no lint, Actions/CI, browser end-to-end test or manual deployment.
