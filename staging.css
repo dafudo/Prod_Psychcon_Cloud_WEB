@@ -466,3 +466,32 @@ h1[tabindex="-1"]:focus{outline:none}
 .drawer-link[href*="/apply/"]{color:#7627b8;font-weight:740}
 @media(max-width:760px){.hero-designation{margin:8px 0 20px;padding-left:13px}.hero-designation strong{font-size:clamp(1.3rem,5vw,1.75rem)}.hero-actions .btn-dark{min-height:56px}.hero-actions .btn-ghost{min-height:43px}}
 @media(max-width:490px){.hero-actions .btn-dark{width:100%;justify-content:space-between}.recognition-track .track-main h3{font-size:1.55rem}.track-level{font-size:.75em}}
+
+
+/* 2026-11-13: clear application actions and thoughtful, curriculum-based eligibility copy. */
+.recognition-pathway-note{margin:-4px 0 29px;max-width:940px;font-size:14px;color:#645b68;line-height:1.85}
+.recognition-pathway-note a{color:#693498;font-weight:740;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.recognition-pathway-note strong{font-weight:700;color:#44334b}
+.criteria-context{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 34px;margin:3px 0 36px;padding:35px 36px;border:1px solid #e3dce8;border-radius:13px;background:#f9f6fb}
+.criteria-context h3{font-size:clamp(1.5rem,2.8vw,2.35rem);letter-spacing:-.045em;line-height:1.16;margin:8px 0 18px;font-weight:670}
+.criteria-context h4{font-size:16px;font-weight:740;letter-spacing:-.01em;line-height:1.4;margin:2px 0 10px}
+.criteria-context p{font-size:14px;line-height:1.88;color:#5d5664;margin-bottom:16px}
+.criteria-context .eyebrow{color:#7d459a;font-size:11px;font-weight:760}
+.criteria-context-note{grid-column:1/-1;padding-top:23px;border-top:1px solid #e3dce8}
+.criteria-context-note>p{max-width:1010px}
+.criteria-context .criteria-context-foot{margin:14px 0 0;color:#746b76;font-size:12px;line-height:1.72}
+.recognition-track[id^="track-"]{scroll-margin-top:110px}
+.recognition-track:target{border-color:#8f58b9;box-shadow:0 0 0 2px rgba(143,88,185,.08)}
+.apply-selector{display:flex;flex-direction:column;align-items:stretch;gap:7px}
+.apply-selector select{width:100%;max-width:100%;cursor:pointer}
+.apply-select-hint{font-size:12px;line-height:1.6;color:#796c80;margin:2px 0 0}
+.apply-sidebar .btn-mail,.apply-sidebar .btn-portal{width:100%;min-height:53px;display:inline-flex;justify-content:space-between;gap:16px;padding:14px 18px;font-size:13px;font-weight:750;line-height:1.4;white-space:normal}
+.apply-sidebar .btn-mail{color:#2f2037;background:#fff;border-color:#fff}
+.apply-sidebar .btn-mail:hover{color:#4d2672;background:#f9f2ff;border-color:#e8cffa}
+.apply-sidebar .btn-portal{color:#fff;background:#7730b0;border-color:#7730b0}
+.apply-sidebar .btn-portal:hover{color:#fff;background:#9845d4;border-color:#9845d4}
+.apply-sidebar .btn-portal:focus-visible,.apply-sidebar .btn-mail:focus-visible{outline:3px solid #d9afea;outline-offset:3px}
+@media(max-width:760px){.criteria-context{grid-template-columns:1fr;padding:25px 22px;gap:16px}.criteria-context-note{grid-column:auto;padding-top:20px}.recognition-track[id^="track-"]{scroll-margin-top:95px}}
+
+/* Support direct links and SPA transitions to details and qualification notes. */
+#kierunki-i-kompetencje,#qualifications-and-experience,#procedure,#tracks,#process{scroll-margin-top:110px}

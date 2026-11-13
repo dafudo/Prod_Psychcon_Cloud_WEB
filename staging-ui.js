@@ -84,10 +84,25 @@
       contact.href='mailto:office@psychcon.org?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     }
   }
+
+  function openSelectedTrack(){
+    let id;
+    try{id=decodeURIComponent(location.hash.slice(1));}catch{return null;}
+    if(!id||id.length>100||!/^[A-Za-z0-9_-]+$/.test(id))return null;
+    const article=document.getElementById(id);
+    if(!article)return null;
+    const details=/^track-(training|I|II|III|IV|honorary)$/.test(id)
+      ?article.querySelector('details.track-details'):null;
+    if(details)details.open=true;
+    article.classList.add('revealed');
+    requestAnimationFrame(()=>article.scrollIntoView({block:'start',behavior:'instant'}));
+    return article;
+  }
   function initialize(){
     setDrawer(false);
     syncApplyTrack();
     observeReveals();
+    openSelectedTrack();
     scrollProgress();
   }
   async function navigate(url,{replace=false,historyEvent=false}={}){
@@ -125,8 +140,8 @@
       }
       window.scrollTo({top:0,left:0,behavior:'instant'});
       initialize();
-      const h1=qs('#main h1');
-      if(h1){h1.tabIndex=-1;h1.focus({preventScroll:true});}
+      const focusTarget=openSelectedTrack()||qs('#main h1');
+      if(focusTarget){focusTarget.tabIndex=-1;focusTarget.focus({preventScroll:true});}
     }
     if(!reduced.matches&&typeof document.startViewTransition==='function'){
       try{await document.startViewTransition(change).finished;}
@@ -148,6 +163,15 @@
     if(u.pathname===location.pathname&&u.search===location.search&&u.hash===location.hash){setDrawer(false);return;}
     void navigate(u.href);
   });
+  // A single selection opens the corresponding detailed route; no submit click needed.
+  document.addEventListener('change',event=>{
+    if(event.target?.id!=='recognition-choice')return;
+    const track=event.target.value;
+    if(!['training','I','II','III','IV','honorary'].includes(track))return;
+    const locale=root.lang==='en'?'en':'pl';
+    void navigate('/'+locale+'/assessment/#track-'+track);
+  });
+  window.addEventListener('hashchange',()=>{openSelectedTrack();});
   document.addEventListener('keydown',event=>{
     if(event.key==='Escape'&&qs('[data-burger]')?.getAttribute('aria-expanded')==='true'){
       event.preventDefault();setDrawer(false,{restoreFocus:true});

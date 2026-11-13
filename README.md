@@ -21,3 +21,14 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 - All other public pages retain their content but use matching application-link labels and versioned CSS/JS references. The private application and its eligibility/acceptance logic were **not** changed.
 - The public pages remain noindex, fee intake and awarding are still gated pending formal approval, and the public website does not collect applicant documents.
 - Verification performed: source-text match assertions and cross-page six-track checks when preparing the Git objects. Not performed: lint, GitHub Actions/CI, local browser/render tests, production payments or manual deployment (per project instructions).
+
+## Multidisciplinary criteria and application UX — 2026-11-13
+
+- Replaced the vague contact action with explicit "send an email enquiry", followed immediately by the application portal action (https://app.psychcon.org/pl/login or English equivalent).
+- Choosing a recognition level on /pl/apply/ or /en/apply/ immediately opens the detailed /assessment/#track-... explanation and expands it. General hash links now also work after client-side navigation.
+- Proposed recognition descriptions consider psychology, pedagogy, counselling, sociology, philosophy, education and relevant social/humanities disciplines including overseas degrees; supplementary courses and supervised practice may be considered to bridge a curriculum gap.
+- Proposed Levels III–IV continue to require three / over five years of experience respectively and five distinct DOI publications. Courses never automatically substitute for a degree or the DOI requirement.
+- These descriptions are NOT approved regulations and do not change the private application, awards, eligibility engine, payment or intake gates. All public pages remain noindex.
+- Polish and English descriptions were revised together; JavaScript/CSS URLs were refreshed on all 14 locale pages.
+- Project restrictions honoured: no lint, GitHub Actions/CI or deployment. Source-level checks and JavaScript parsing only. No live-browser verification.
+- Background and academic examples: ELIGIBILITY-PROPOSAL-2026-11-13.md.
