@@ -54,3 +54,13 @@ Keep the old website backed up. Do not deploy private applicant, admin or paymen
 The owner expressly authorised publishing and indexing the public TDP/PCA marketing website. This release removes `noindex` from all **14** public static PL/EN pages (including the informational `/apply/` guides); root `/` has a canonical to `/pl/` and retains a visible language choice and redirect. `404.html` correctly remains noindex. `robots.txt` provides a 14-page sitemap, with reciprocal PL/EN/x-default alternates. No private application URLs or account data appear in the sitemap. Proposals for levels remain labelled as proposed, since public-site release consent is distinct from formally approving award regulations or enabling paid intake.
 
 The GitHub commit updates `main`, the configured intended publication branch. **Live GitHub Pages enablement/custom-domain assignment and production HTTP checks must still be independently verified**; updating source alone does not establish them. No lint or GitHub Actions/CI workflows were enabled. A legal or operational release of the private application has NOT been authorised by this change.
+
+
+## Public document examples, legal links and email — 2026-11-17
+
+- Footer across PL and EN links to the existing app-hosted terms, privacy and public certificate verification routes (Cloudflare legal Worker); legal text is not duplicated here.
+- Visible email links use Cloudflare's documented `<!--email_off-->` / `<!--/email_off-->` exclusion comments so `mailto:office@psychcon.org` is not rewritten to /cdn-cgi/l/email-protection.
+- Added `/pl/documents/` and `/en/documents/`, with PDF previews and downloads plus links to the `https://app.psychcon.org/{locale}/verify` register. The two illustrative PDF assets were moved unchanged to `documents/examples/`.
+- Added documents navigation, SEO metadata, hreflang, sitemap entries and internal navigation support.
+- Corrected the public assessment instructions to refer to emailed login codes and two separate one-language decision PDFs, consistent with the private app.
+- Scope of checks: source-level HTML link, route and metadata checks; no end-to-end browser, production HTTP, Cloudflare obfuscation or PDF-render verification. No lint, GitHub Actions/CI or direct deployment.

@@ -7,7 +7,7 @@
   let observer=null;
   let activeNavigation=0;
   let scrollQueued=false;
-  const allowed=/^\/(?:pl|en)(?:\/(?:about|board|assessment|apply|pricing|partners))?\/?$/;
+  const allowed=/^\/(?:pl|en)(?:\/(?:about|board|assessment|apply|pricing|partners|documents))?\/?$/;
   const qs=(selector,scope=document)=>scope.querySelector(selector);
   function svgArrow(){
     return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4M8 4h12v12"/></svg>';
@@ -207,7 +207,7 @@
   });
   window.addEventListener('scroll',queueProgress,{passive:true});
   window.addEventListener('resize',()=>{
-    if(window.innerWidth>940&&qs('[data-burger]')?.getAttribute('aria-expanded')==='true')setDrawer(false);
+    if(window.innerWidth>1150&&qs('[data-burger]')?.getAttribute('aria-expanded')==='true')setDrawer(false);
     queueProgress();
   },{passive:true});
   window.addEventListener('popstate',()=>{
