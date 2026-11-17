@@ -17,3 +17,12 @@ The owner expressly authorised publication and SEO indexing of the 14 public inf
 
 ## Wyświetlanie cen na publicznym WWW — 2026-11-17
 Nie zmieniać obecnego hostingu GitHub Pages ani DNS. Oddzielny Cloudflare Worker `psychcon-public-pricing` ma wyłącznie cztery wąskie trasy: `www.psychcon.org/pl/pricing*`, `www.psychcon.org/en/pricing*`, `www.psychcon.org/api/public/pricing*`, `www.psychcon.org/documents/examples/*`. Binding `DB` wskazuje istniejącą produkcyjną D1. Wyszukiwanie cen korzysta wyłącznie z SELECT; finalny Checkout nadal pobiera aktualną cenę po stronie Workera aplikacji. Bez zmian tras prywatnej aplikacji, płatności ani GitHub Pages.
+
+
+## Wdrożenie cennika i SEO — potwierdzono 2026-11-17
+- [x] Po aktualizacji `main` witryna WWW zachowała GitHub Pages i dotychczasowy DNS, bez migracji hostingu. Linki PL/EN do regulaminu i prywatności kierują do kanonicznych wersji `www.psychcon.org`; /assessment/ odsyła do cennika, a /apply/ kieruje do portalu.
+- [x] Sitemap produkcyjnie zawiera 20 parowanych URL PL/EN: 16 stron statycznych i cztery strony prawne na www. Potwierdzono obecność dokumentów prawnych i przykładowych dokumentów w produkcyjnej sitemap.
+- [x] Worker `psychcon-public-pricing` obsługuje /pl/pricing/, /en/pricing/, /api/public/pricing i przykładowe pliki PDF. Wersja `c5feb71b-bbb0-4803-ac5e-5b76f60454aa` i deployment `70e4661f-45e2-4f5e-97b2-7ca4431d97a0` mają 100% ruchu; źródło i binding produkcyjnej D1 znajdują się w `dafudo/Prod_Psychcon_Cloud/edge/psychcon-public-pricing.mjs`.
+- [x] Dla polskiego i angielskiego HTML cennika Browser Rendering potwierdził cztery aktualne ceny 300/150/349/199 PLN, a publiczny JSON odczyt tej samej D1. Polski PDF demonstracyjny zwrócił HTTP 200 i nagłówek `X-Robots-Tag: noindex, nofollow`.
+- [x] Stare ścieżki dokumentów prawnych `app.psychcon.org` przekierowują 308 na www; testowano /en/privacy. Nie zmieniano żadnych wydanych prywatnych dokumentów.
+- [ ] Niezależne testy E2E całej witryny, Lighthouse, indeksacji Google, realnej zmiany ceny w D1 i wszystkich PDF nie zostały wykonane. Nie uruchamiano linta, GitHub Actions ani migracji.
