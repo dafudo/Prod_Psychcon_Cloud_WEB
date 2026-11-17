@@ -13,3 +13,7 @@
 ## Public-site publication consent — 2026-11-13
 
 The owner expressly authorised publication and SEO indexing of the 14 public informational pages in both languages. Their HTML and sitemap/robots now permit indexing. The `main` source has been prepared for GitHub Pages; confirm Pages source is `main / (root)`, that `www.psychcon.org` is assigned to this repository, HTTPS is enforced, and that the root, PL/EN routes and sitemap are actually served. Earlier notes in this document saying noindex is pending refer to the state before this owner decision. This release does not remove private application safety or payment/award feature gates. Do not enable GitHub Actions or CI as a workaround.
+
+
+## Wyświetlanie cen na publicznym WWW — 2026-11-17
+Nie zmieniać obecnego hostingu GitHub Pages ani DNS. Oddzielny Cloudflare Worker `psychcon-public-pricing` ma wyłącznie cztery wąskie trasy: `www.psychcon.org/pl/pricing*`, `www.psychcon.org/en/pricing*`, `www.psychcon.org/api/public/pricing*`, `www.psychcon.org/documents/examples/*`. Binding `DB` wskazuje istniejącą produkcyjną D1. Wyszukiwanie cen korzysta wyłącznie z SELECT; finalny Checkout nadal pobiera aktualną cenę po stronie Workera aplikacji. Bez zmian tras prywatnej aplikacji, płatności ani GitHub Pages.
