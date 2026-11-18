@@ -17,3 +17,11 @@ This repository contains the public-facing Polish and English TDP/PCA website: *
 - [x] Dla polskiego i angielskiego HTML cennika Browser Rendering potwierdził cztery aktualne ceny 300/150/349/199 PLN, a publiczny JSON odczyt tej samej D1. Polski PDF demonstracyjny zwrócił HTTP 200 i nagłówek `X-Robots-Tag: noindex, nofollow`.
 - [x] Stare ścieżki dokumentów prawnych `app.psychcon.org` przekierowują 308 na www; testowano /en/privacy. Nie zmieniano żadnych wydanych prywatnych dokumentów.
 - [ ] Niezależne testy E2E całej witryny, Lighthouse, indeksacji Google, realnej zmiany ceny w D1 i wszystkich PDF nie zostały wykonane. Nie uruchamiano linta, GitHub Actions ani migracji.
+
+## Procedura, wybór stopnia i formaty dokumentów — 2026-11-18
+
+- PL/EN `/assessment/`: zachowano dziesięć etapów z opłatą 300 PLN przed formularzem i 150 PLN rocznie wyłącznie po decyzji pozytywnej. W etapie formularza dopisano wszystkie kierunki studiów (również zagraniczne), indywidualną ocenę programu, limit **2 plików PDF/JPG/PNG/WebP na wpis, 5 MB na plik**, zakaz przesyłania danych klientów oraz zachowano wymóg DOI stopni III–IV.
+- PL/EN `/apply/`: doprecyzowano, że wybór poziomu potwierdza się w portalu **przed** płatnością, załączniki przypisuje się do wpisów wykształcenia / doświadczenia, a odnowienie 150 PLN następuje w kolejnych latach. Stopa 300+150=450 PLN jest warunkowa (po decyzji pozytywnej i aktywacji).
+- Strony pozostają statyczne, bez API i danych użytkownika. Aktualne ceny w `/pricing/` nadal pochodzą z dedykowanego Workera/D1.
+- Zmiana samych plików nie stanowi potwierdzenia publikacji GitHub Pages ani wdrożenia Workera aplikacji; wymaga osobnej kontroli produkcyjnej.
+
