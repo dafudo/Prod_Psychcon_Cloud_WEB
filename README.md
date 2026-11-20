@@ -1,5 +1,10 @@
 # TDP / PCA — public static website
 
+## 2026-11-20: Pricing simplification
+- PL/EN: new applications cost PLN 300 each, appeals PLN 300, annual online certificate access PLN 150. All displayed prices are tax-inclusive and final amounts; no separate upgrade offering.
+- Public pricing Worker must read only initial/appeal/annual kinds; static fallback matches the D1 gross amounts. Stripe Checkout inline prices use `tax_behavior: 'inclusive'`. Historical Stripe subscriptions are not cancelled by the test-data reset.
+
+
 ## Appeals and legal terms — 2026-11-20
 - PL/EN `/assessment/` clarify that an appeal is separately paid (current price list; authorised waiver possible) and must be submitted within 30 days of receipt of the decision, defined in the portal as publication to the applicant's account. After that period the form is hidden. PL/EN wording is equivalent.
 - The binding terms pages linked at `/pl/terms` and `/en/terms` are **not files in this repository**. Their authoritative source is `dafudo/Prod_Psychcon_Cloud/legal/psychcon-legal-worker.mjs` (dedicated Cloudflare legal Worker), updated in parallel. Editing this static repository alone would not modify that legal Worker; its deployment must be checked separately.
