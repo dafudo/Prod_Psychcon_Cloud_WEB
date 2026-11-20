@@ -1,5 +1,10 @@
 # TDP / PCA — public static website
 
+## Appeals and legal terms — 2026-11-20
+- PL/EN `/assessment/` clarify that an appeal is separately paid (current price list; authorised waiver possible) and must be submitted within 30 days of receipt of the decision, defined in the portal as publication to the applicant's account. After that period the form is hidden. PL/EN wording is equivalent.
+- The binding terms pages linked at `/pl/terms` and `/en/terms` are **not files in this repository**. Their authoritative source is `dafudo/Prod_Psychcon_Cloud/legal/psychcon-legal-worker.mjs` (dedicated Cloudflare legal Worker), updated in parallel. Editing this static repository alone would not modify that legal Worker; its deployment must be checked separately.
+
+
 This repository contains the public-facing Polish and English TDP/PCA website: **https://www.psychcon.org/**. It consists only of static HTML/CSS/JavaScript.
 
 
