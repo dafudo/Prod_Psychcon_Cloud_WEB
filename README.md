@@ -1,3 +1,6 @@
+## Planowane uproszczenie publicznych dokumentów — 2026-11-21
+W tej gałęzi przygotowano cztery statyczne dokumenty: `/pl/terms/`, `/pl/privacy/`, `/en/terms/`, `/en/privacy/`, z zachowaniem 16 sekcji każdej wersji źródłowej i wspólnym `legal.css`. Cennik PL/EN już ma statyczne kwoty zgodne z D1 z 21.11.2026: 300 PLN ocena, 300 PLN odwołanie, 150 PLN rocznie. Checkout zawsze pobiera kwotę niezależnie z D1. Po wyłączeniu `psychcon-public-pricing` zmiany cen wymagają osobnej aktualizacji HTML GitHub Pages; dawny endpoint `/api/public/pricing` przestanie działać. Na czas przygotowania stare trasy obu pomocniczych Workerów nadal wygrywają z GitHub Pages. Zdejmij je dopiero po opublikowaniu statycznych stron i sprawdzeniu PL/EN. Przykładowe PDF-y pozostają publiczne, a `robots.txt` blokuje ich indeksowanie; nie jest to tożsame z nagłówkiem `X-Robots-Tag: noindex`.
+
 # TDP / PCA — public static website
 
 ## 2026-11-20: Pricing simplification

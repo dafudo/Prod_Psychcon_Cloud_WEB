@@ -1,3 +1,6 @@
+## Przygotowanie usunięcia pomocniczych Workerów — 2026-11-21
+Przed usunięciem tras i skryptów `psychcon-legal` oraz `psychcon-public-pricing`: opublikować statyczne `/pl/terms/`, `/en/terms/`, `/pl/privacy/`, `/en/privacy/` z tej gałęzi; zweryfikować ich treść, widok mobilny i adresy bezpośrednie; potwierdzić cennik PL/EN z produkcyjną D1; przygotować przekierowanie starych `app.psychcon.org/{pl|en}/{terms|privacy}` w głównej aplikacji. Po zdjęciu tras sprawdzić także przykładowe PDF, SEO i Checkout. Zmiany cen w D1 nie będą automatycznie zmieniać statycznego HTML. Nie usuwać bez weryfikacji i nie usuwać głównego Workera aplikacji.
+
 # Domain split — 2026-11-09
 
 - **Public website:** `www.psychcon.org` → GitHub Pages → `dafudo/Prod_Psychcon_Cloud_WEB` (static HTML, CSS, plain JavaScript; PL/EN).
